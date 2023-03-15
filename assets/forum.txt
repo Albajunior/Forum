@@ -1,0 +1,23 @@
+password => type text 
+Quand on vas heberger notre site, sur le fichier bd en config on change localhost par notre hote d l'hebergeur
+Pour hasher le password avant l'envoi au bd on use : $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+Deconnect : on supprime tt
+            session_start();
+            $_SESSION=[];
+            session_destroy();
+            header('location:../login.php');
+
+nl2br(htmlspecialchars($_POST['contenu'])); pour recuperer un textarea avec des saut d lign ...
+
+<hr> fait une ligne de separation horizontale 
+
+VIP
+$checkIfQuestionExist = $bdd->prepare('SELECT id FROM questions WHERE id = ?');
+$checkIfQuestionExist->execute(array($idQuestionUrl));
+ne jamais manipuler directemnt $checkIfQuestionExist la variable de la requete, 
+tjrs mettre les infos dans un variable
+  => //on met les resultats de la req (id) dans $questions
+        $questionsInfos = $checkIfQuestionExist->fetch();
+
+On peut quand mm verifier si la variable de la requete est nul ou pas pa (avec rowcount,..)
